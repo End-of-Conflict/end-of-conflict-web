@@ -4,6 +4,8 @@
  */
 import React from 'react';
 import { useRouteMatch } from "react-router-dom";
+import Nav from '../nav/Nav';
+import './Header.css';
 
 type Props = {
   title: string,
@@ -18,6 +20,7 @@ const Header = (props: Props): React$Element<"header"> => {
   return (
     <header>
       <h1>{heading}</h1>
+      <Nav {...props} />
     </header>
   );
 }

@@ -5,5 +5,9 @@ exports[`Renders Header Introduction 1`] = `
   <h1>
     EoC: The end of conflict
   </h1>
+  <Nav
+    chapters={Array []}
+    title="The end of conflict"
+  />
 </header>
 `;

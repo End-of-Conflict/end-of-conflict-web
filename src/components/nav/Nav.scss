@@ -1,0 +1,51 @@
+@import '../../base/breakpoints';
+
+.menu {
+  display: flex;
+  padding: 1rem 0;
+  justify-content: flex-end;
+
+  @include breakpoint(sm) {
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .toggle {
+    cursor: pointer;
+    position: absolute;
+    top: .5rem;
+    right: 1rem;
+
+    @include breakpoint(sm) {
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+  }
+
+  nav {
+    display: none;
+
+    @include breakpoint(sm) {
+      align-items: center;
+    }
+
+    a {
+      margin-right: .5rem;
+
+      &:last-child {
+        margin-right: 0;
+
+        @include breakpoint(sm) {
+          margin-right: .5rem;
+        }
+      }
+    }
+  }
+
+  &.open {
+    nav {
+      display: flex;
+    }
+  }
+}

@@ -9,19 +9,26 @@ import { DATA_DOMAIN, DATA_FILE } from '../../data/Data';
 
 const Chapter = (props: {}): null | React$Element<React$FragmentType> => {
   let match = useRouteMatch("/chapters/:lang/:chapter");
-  console.warn('Chapter', match);
-  const { lang, chapter } = match.params ? match.params : { lang: 'en', chapter: 0};
+  const { lang, chapter } = match && match.params ? match.params : { lang: 'en', chapter: 0 };
   const [data, setData] = React.useState(0);
-  const url = match ? `${DATA_DOMAIN}/${lang}/${chapter}/${DATA_FILE}` : null;
+  const [current, setCurrent] = React.useState(null);
 
-  if (!data && url) {
+  if (!match) {
+    return null;
+  }
+
+  const url = `${DATA_DOMAIN}/${lang}/${chapter}/${DATA_FILE}`;
+
+  if (current !== chapter) {
     fetch(url)
     .then(
       result => result.json()
     )
     .then (
       data => {
+        console.warn(data)
         setData(data);
+        setCurrent(chapter)
       }
     )
     .catch(
@@ -33,8 +40,9 @@ const Chapter = (props: {}): null | React$Element<React$FragmentType> => {
     return null;
   }
 
-  console.warn(data, match);
   const { content } = data;
+  console.warn('Chapter renders');
+
   return (
     <React.Fragment>
       <Header {...props} {...data} />

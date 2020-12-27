@@ -1,0 +1,10 @@
+@import '../../base/breakpoints';
+
+.Main {
+  margin: 0 auto;
+  padding: 1rem;
+
+  @include breakpoint(sm) {
+    max-width: 42rem;
+  }
+}
