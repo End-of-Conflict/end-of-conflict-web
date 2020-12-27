@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Header Introduction 1`] = `
+<header>
+  <h1>
+    EoC: The end of conflict
+  </h1>
+</header>
+`;
