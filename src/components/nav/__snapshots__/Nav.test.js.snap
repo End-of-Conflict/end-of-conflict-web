@@ -4,9 +4,27 @@ exports[`Renders Nav 1`] = `
 <div
   className="menu"
 >
+  <nav
+    id="main-nav"
+  >
+    <NavLink
+      to="/"
+    >
+      Home
+    </NavLink>
+    <NavLink
+      key="0"
+      to="/chapters/en/0"
+    >
+      TLDR;
+    </NavLink>
+  </nav>
   <div
+    aria-controls="main-nav"
+    aria-expanded={false}
     className="toggle"
     onClick={[Function]}
+    role="button"
   >
     <FontAwesomeIcon
       border={false}
@@ -28,12 +46,5 @@ exports[`Renders Nav 1`] = `
       transform={null}
     />
   </div>
-  <nav>
-    <NavLink
-      to="/"
-    >
-      Home
-    </NavLink>
-  </nav>
 </div>
 `;

@@ -1,8 +1,8 @@
 @import '../../base/breakpoints';
+@import '../../base/colors';
 
 .menu {
   display: flex;
-  padding: 1rem 0;
   justify-content: flex-end;
 
   @include breakpoint(sm) {
@@ -13,7 +13,7 @@
   .toggle {
     cursor: pointer;
     position: absolute;
-    top: .5rem;
+    top: 1rem;
     right: 1rem;
 
     @include breakpoint(sm) {
@@ -32,6 +32,12 @@
 
     a {
       margin-right: .5rem;
+      text-decoration: none;
+      color: $mine-shaft;
+
+      &:visited {
+        color: $mine-shaft;
+      }
 
       &:last-child {
         margin-right: 0;
@@ -39,6 +45,10 @@
         @include breakpoint(sm) {
           margin-right: .5rem;
         }
+      }
+
+      &.active {
+        text-decoration: underline;
       }
     }
   }

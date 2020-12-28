@@ -1,0 +1,46 @@
+@import '../../base/colors';
+
+.PrevNextButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background: $mine-shaft;
+  color: $white;
+  padding: .5rem 1rem;
+  border: 1px solid $mine-shaft;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    background: $white;
+    color: $mine-shaft;
+
+    &:visited {
+      color: $mine-shaft;
+    }
+  }
+
+  &.empty {
+    width: 1px;
+    height: 1px;
+    background-color: $white;
+    border: none;
+    padding: 0;
+  }
+
+  &.next {
+    justify-content: flex-end;
+  }
+
+    text-decoration: none;
+
+  .fa-chevron-left {
+    margin-right: .5rem;
+  }
+  
+  .fa-chevron-right {
+    margin-left: .5rem;
+  }
+}

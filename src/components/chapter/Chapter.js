@@ -4,8 +4,9 @@
  */
 import * as React from 'react';
 import Header from '../header/Header';
-import { useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from 'react-router-dom';
 import { DATA_DOMAIN, DATA_FILE } from '../../data/Data';
+import './Chapter.css';
 
 const Chapter = (props: {}): null | React$Element<React$FragmentType> => {
   let match = useRouteMatch("/chapters/:lang/:chapter");

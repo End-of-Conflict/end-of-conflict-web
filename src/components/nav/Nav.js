@@ -25,7 +25,7 @@ const Nav = (props: Props): React$Element<"div"> => {
 
   return (
     <div className={`menu${open ? ' open' : ''}`}>
-      <nav>
+      <nav id="main-nav">
         <NavLink to="/">
           Home
         </NavLink>
@@ -38,7 +38,13 @@ const Nav = (props: Props): React$Element<"div"> => {
             : null
         }
       </nav>
-      <div className="toggle" onClick={openNav}>
+      <div
+        className="toggle"
+        onClick={openNav}
+        role="button"
+        aria-controls="main-nav"
+        aria-expanded={open}
+      >
         <FontAwesomeIcon icon={open ? 'times' : 'bars'} />
       </div>
     </div>
@@ -47,7 +53,7 @@ const Nav = (props: Props): React$Element<"div"> => {
 }
 
 Nav.defaultProps = {
-  chapters: ([]: Array<empty>),
+  chapters: [{title: 'TLDR;', url: '/0'}],
   language: 'en'
 }
 

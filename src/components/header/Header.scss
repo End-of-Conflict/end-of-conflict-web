@@ -1,8 +1,11 @@
 @import '../../base/breakpoints';
+@import '../../base/colors';
 
 header {
   margin: 0 auto;
   position: relative;
+  background: $alto;
+  padding: 1rem;
 
   @include breakpoint(sm) {
     padding: 1rem 0;
@@ -11,7 +14,15 @@ header {
     justify-content: space-between;
   }
 
-  h1 {
-    margin: 0
+  .book-title {
+    margin: 0;
+    font-weight: 700;
+
+    text-decoration: none;
+    color: $mine-shaft;
+
+    &:visited {
+      color: $mine-shaft;
+    }
   }
 }

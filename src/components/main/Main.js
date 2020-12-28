@@ -5,6 +5,7 @@
 import React, { useState } from 'react';
 import Home from '../home/Home';
 import Chapter from '../chapter/Chapter';
+import PrevNext from '../prev-next/PrevNext';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { DATA_URL } from '../../data/Data';
 import './Main.css';
@@ -37,6 +38,7 @@ const Main = (props: Props): React$Element<"div"> => {
       <Router>
         <Home {...data} language={language} />
         <Chapter {...data} language={language} />
+        <PrevNext {...data} language={language} />
       </Router>
     </div>
   );

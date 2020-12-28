@@ -28,7 +28,6 @@ import {
   faSquare,
 } from '@fortawesome/free-regular-svg-icons'
 import './App.css';
-
 library.add(
   faBars,
   faCheck,
@@ -49,7 +48,6 @@ library.add(
   faEnvelope,
   faGlobe,
 );
-import './App.css';
 
 type Props = {};
 
