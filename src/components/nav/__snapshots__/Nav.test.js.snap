@@ -7,24 +7,37 @@ exports[`Renders Nav 1`] = `
   <nav
     id="main-nav"
   >
-    <NavLink
-      to="/"
-    >
-      Home
-    </NavLink>
-    <NavLink
-      key="0"
-      to="/chapters/en/0"
-    >
-      TLDR;
-    </NavLink>
+    <ul>
+      <li>
+        <NavLink
+          exact={true}
+          to="/"
+        >
+          Home
+        </NavLink>
+      </li>
+      <NavChapters
+        chapters={
+          Array [
+            Object {
+              "slug": "tldr",
+              "title": "TLDR;",
+            },
+          ]
+        }
+        language="en"
+        toggleMainNav={[Function]}
+      />
+    </ul>
   </nav>
   <div
     aria-controls="main-nav"
     aria-expanded={false}
+    aria-label="Toggle main navigation"
     className="toggle"
     onClick={[Function]}
     role="button"
+    title="Toggle main navigation"
   >
     <FontAwesomeIcon
       border={false}

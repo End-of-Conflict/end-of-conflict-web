@@ -14,37 +14,56 @@
     cursor: pointer;
     position: absolute;
     top: 1rem;
-    right: 1rem;
-
-    @include breakpoint(sm) {
-      position: relative;
-      top: auto;
-      right: auto;
-    }
+    left: 1rem;
+    z-index: 20;
+    transition: all .5s ease-in-out;
   }
 
   nav {
-    display: none;
+    background: rgba($mine-shaft, .95);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: calc(-100vw - 2rem);
+    top: 0;
+    min-height: 100vh;
+    width: calc(100vw - 2rem);
+    z-index: 10;
+    padding: 3rem 2rem 0 0;
+    transition: all .5s ease-in-out;
 
     @include breakpoint(sm) {
-      align-items: center;
+      left: -21rem;
+      width: 19rem;
+      min-height: 100vh;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        margin: 0 0 0 1rem;
+        padding: 0;
+        color: $white;
+        line-height: 2rem;
+        display: block;
+        width: 100%;
+      }
     }
 
     a {
-      margin-right: .5rem;
       text-decoration: none;
-      color: $mine-shaft;
+      color: $white;
+      display: block;
 
-      &:visited {
-        color: $mine-shaft;
+      &:hover {
+        text-decoration: underline;
       }
 
-      &:last-child {
-        margin-right: 0;
-
-        @include breakpoint(sm) {
-          margin-right: .5rem;
-        }
+      &:visited {
+        color: $white;
       }
 
       &.active {
@@ -54,8 +73,17 @@
   }
 
   &.open {
+    .toggle {
+      color: $white;
+    }
+
     nav {
-      display: flex;
+      left: 0;
+
+      @include breakpoint(sm) {
+        width: 21rem;
+        box-shadow: 0 0 4rem $mine-shaft;
+      }
     }
   }
 }

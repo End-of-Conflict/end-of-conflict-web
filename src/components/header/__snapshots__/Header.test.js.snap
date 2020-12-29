@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Renders Header Introduction 1`] = `
-<Fragment>
+<div
+  className="header"
+>
   <header>
     <Link
       className="book-title"
@@ -13,8 +15,8 @@ exports[`Renders Header Introduction 1`] = `
       chapters={
         Array [
           Object {
+            "slug": "tldr",
             "title": "TLDR;",
-            "url": "/0",
           },
         ]
       }
@@ -22,8 +24,5 @@ exports[`Renders Header Introduction 1`] = `
       title="The end of conflict"
     />
   </header>
-  <h1>
-    The end of conflict
-  </h1>
-</Fragment>
+</div>
 `;

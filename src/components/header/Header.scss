@@ -1,28 +1,36 @@
 @import '../../base/breakpoints';
 @import '../../base/colors';
 
-header {
-  margin: 0 auto;
-  position: relative;
+.header {
   background: $alto;
-  padding: 1rem;
+  position: relative;
 
-  @include breakpoint(sm) {
-    padding: 1rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .book-title {
-    margin: 0;
-    font-weight: 700;
-
-    text-decoration: none;
-    color: $mine-shaft;
-
-    &:visited {
+  header {
+    margin: 0 auto;
+    padding: 1rem;
+  
+    @include breakpoint(sm) {
+      width: 42rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+  
+    .book-title {
+      margin: 0 0 0 1.5rem;
+      font-weight: 700;
+      text-decoration: none;
       color: $mine-shaft;
+
+      @include breakpoint(sm) {
+        margin: 0;
+      }
+  
+      &:visited {
+        color: $mine-shaft;
+      }
     }
   }
 }
+

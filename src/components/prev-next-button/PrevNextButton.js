@@ -11,33 +11,50 @@ type Props = {
   chapter: number | null,
   chapters: Array<{
     title: string,
-    url: string
+    slug: string
   }>,
   language: string,
   prev: boolean,
 };
 
 const PrevNextButton = (props:Props): null | React$Element<"div"> => {
-  const { chapter, chapters, language, prev } = props;
+  let { chapter, chapters, language, prev } = props;
 
-  if (chapter === null || !chapters[chapter]) {
-    return (
-      <div className={`PrevNextButton empty ${prev ? 'prev' : 'next'}`} />
+  switch (true) {
+    case (chapter === null):
+      return (
+        <div className="PrevNextButton empty prev" />
+      );
+
+    case (chapter === -1):
+      return (
+      <Link to="/" className="PrevNextButton prev home">
+        <FontAwesomeIcon icon="chevron-left" />
+        Home
+      </Link>
     );
-  }
 
-  return (
-    <Link to={`/chapters/${language}/${chapter}`} className={`PrevNextButton ${prev ? 'prev' : 'next'}`}>
-      { prev ? <FontAwesomeIcon icon="chevron-left" /> : null }
-      { chapters[chapter].title }
-      { !prev ? <FontAwesomeIcon icon="chevron-right" /> : null }
-    </Link>
-  );
+    case (chapter !== null && !chapters[chapter]):
+      return (
+        <div className={`PrevNextButton empty ${prev ? 'prev' : 'next'}`} />
+      );
+
+    default:
+      chapter = chapter === null ? 0 : chapter; // because Flow is not picking up case(0) above
+      const { title, slug } = chapters[chapter]
+      return (
+        <Link to={`/chapters/${language}/${slug}`} className={`PrevNextButton ${prev ? 'prev' : 'next'}`}>
+          { prev ? <FontAwesomeIcon icon="chevron-left" /> : null }
+          { title }
+          { !prev ? <FontAwesomeIcon icon="chevron-right" /> : null }
+        </Link>
+      );
+  }  
 }
 
 PrevNextButton.defaultProps = {
   chapter: null,
-  chapters: ([]: Array<empty>),
+  chapters: [{title: 'TLDR;', slug: 'tldr'}],
   language: 'en',
   prev: true,
 }

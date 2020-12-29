@@ -10,28 +10,55 @@ import './PrevNext.css';
 type Props = {
   chapters: Array<{
     title: string,
-    url: string
+    slug: string
   }>,
   language: string
 };
 
-const PrevNext = (props:Props): React$Element<"div"> => {
+const PrevNext = (props:Props): React$Element<"aside"> => {
+  const { chapters } = props;
   let match = useRouteMatch("/chapters/:lang/:chapter");
-  const { chapter } = match && match.params ? match.params : { lang: 'en', chapter: 0 };
+  const home = useRouteMatch("/");
+  const isHome = home && home.isExact ? true : false;
+  const { chapter } = match && match.params ? match.params : { lang: 'en', chapter: 'tldr' };
+  let current = null;
+  let prev = null;
+  let next = null;
 
-  const prev = !isNaN(chapter) ? parseInt(chapter) - 1 : null;
-  const next = !isNaN(chapter) ? parseInt(chapter) + 1 : null;
+  for (let i=0; i< chapters.length; i++) {
+    if (chapters[i].slug === chapter) {
+      current = i;
+    }
+  }
+
+  switch(true) {
+    case(isHome):
+    case(current === null):
+      prev = null;
+      next = 0;
+      break;
+    
+    case(current === 0):
+      prev = -1;
+      next = 1;
+      break;
+
+    default:
+      prev = parseInt(current) - 1;
+      next = parseInt(current) + 1;
+      // no op
+  }
 
   return (
-    <div className="PrevNext">
+    <aside className="PrevNext">
       <PrevNextButton {...props} prev={true} chapter={prev} />
       <PrevNextButton {...props} prev={false} chapter={next} />
-    </div>
+    </aside>
   );
 }
 
 PrevNext.defaultProps = {
-  chapters: ([]: Array<empty>),
+  chapters: [{title: 'TLDR;', slug: 'tldr'}],
   language: 'en'
 }
 

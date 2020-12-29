@@ -1,0 +1,50 @@
+@import '../../base/breakpoints';
+@import '../../base/colors';
+
+footer {
+  margin-top: 2rem;
+  padding: 2rem 1rem 5rem;
+  font-size: .8rem;
+  background: $mine-shaft;
+  color: $white;
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+    @include breakpoint(sm) {
+      width: 42rem;
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  .cc {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .by {
+      margin-left: .5rem;
+    }
+  }
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:visited {
+      color: $white;
+    }
+  }
+
+  .svg-inline--fa {
+    margin-right: .5rem;
+  }
+}

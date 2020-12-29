@@ -1,10 +1,16 @@
+@import '../../base/breakpoints';
 @import '../../base/colors';
 
 .PrevNext {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2rem;
-  border-top: 1px solid $mine-shaft;
+  margin: 2rem auto;
+  border-top: 1px solid $alto;
   padding: 1rem;
+
+  @include breakpoint(sm) {
+    width: 42rem;
+    padding: 1rem 0;
+  }
 }

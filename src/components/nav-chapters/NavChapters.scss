@@ -1,0 +1,31 @@
+.NavChapters {
+  ul {
+    display: none;
+  }
+
+  &.open {
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+
+  .toggle-chapters {
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    .svg-inline--fa {
+      margin-left: .5rem;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  
+}

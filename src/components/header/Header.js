@@ -8,24 +8,21 @@ import Nav from '../nav/Nav';
 import './Header.css';
 
 type Props = {
-  title: string,
+  title: string
 };
 
-const Header = (props: Props): React$Element<React$FragmentType> => {
+const Header = (props: Props): React$Element<"div"> => {
   const { title } = props;
   const match = useRouteMatch("/chapters/en/:chapter");
-  const home = useRouteMatch("/");
-  const isHome = home && home.isExact ? true : false;
   document.title = match && match.params ? `End of Conflict | Chapter ${match.params.chapter}: ${title}` : title;
 
   return (
-    <React.Fragment>
+    <div className="header">
       <header>
         <Link to="/" className="book-title">The End of Conflict</Link>
         <Nav {...props} />
       </header>
-      {!isHome ? <h1>{title}</h1> : null}
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -1,13 +1,12 @@
 @import '../../base/breakpoints';
 @import '../../base/mixins';
 
-.Chapter {
+.Home {
   @include min-height;
   padding: 0 1rem;
+  margin: 0 auto;
 
   @include breakpoint(sm) {
     width: 42rem;
-    margin: 0 auto;
-    padding: 0;
   }
 }

@@ -5,45 +5,44 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import NavChapters from '../nav-chapters/NavChapters';
 import './Nav.css';
 
 type Props = {
   chapters: Array<{
     title: string,
-    url: string
+    slug: string
   }>,
   language: string
 };
 
 const Nav = (props: Props): React$Element<"div"> => {
-  const { chapters, language } = props;
   const [open, setOpen] = useState(false);
 
-  function openNav() {
+  function toggleMainNav() {
     setOpen(!open);
   }
 
   return (
     <div className={`menu${open ? ' open' : ''}`}>
       <nav id="main-nav">
-        <NavLink to="/">
-          Home
-        </NavLink>
-        {
-          chapters
-            ? chapters.map((item, index) => {
-                const { title, url } = item;
-                return <NavLink to={`/chapters/${language}${url}`} key={index}>{title}</NavLink>
-              })
-            : null
-        }
+        <ul>
+          <li>
+            <NavLink to="/" exact={true}>
+              Home
+            </NavLink>
+          </li>
+          <NavChapters {...props} toggleMainNav={toggleMainNav} />
+        </ul>
       </nav>
       <div
         className="toggle"
-        onClick={openNav}
+        onClick={toggleMainNav}
         role="button"
         aria-controls="main-nav"
         aria-expanded={open}
+        aria-label="Toggle main navigation"
+        title="Toggle main navigation"
       >
         <FontAwesomeIcon icon={open ? 'times' : 'bars'} />
       </div>
@@ -53,7 +52,7 @@ const Nav = (props: Props): React$Element<"div"> => {
 }
 
 Nav.defaultProps = {
-  chapters: [{title: 'TLDR;', url: '/0'}],
+  chapters: [{title: 'TLDR;', slug: 'tldr'}],
   language: 'en'
 }
 
