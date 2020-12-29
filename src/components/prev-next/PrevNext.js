@@ -15,7 +15,7 @@ type Props = {
   language: string
 };
 
-const PrevNext = (props:Props): React$Element<"aside"> => {
+const PrevNext = (props:Props): React$Element<"div"> => {
   const { chapters } = props;
   let match = useRouteMatch("/chapters/:lang/:chapter");
   const home = useRouteMatch("/");

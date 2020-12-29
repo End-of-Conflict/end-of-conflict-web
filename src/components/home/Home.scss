@@ -2,11 +2,4 @@
 @import '../../base/mixins';
 
 .Home {
-  @include min-height;
-  padding: 0 1rem;
-  margin: 0 auto;
-
-  @include breakpoint(sm) {
-    width: 42rem;
-  }
 }

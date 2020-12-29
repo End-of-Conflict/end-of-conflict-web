@@ -2,12 +2,4 @@
 @import '../../base/mixins';
 
 .Chapter {
-  @include min-height;
-  padding: 0 1rem;
-
-  @include breakpoint(sm) {
-    width: 42rem;
-    margin: 0 auto;
-    padding: 0;
-  }
 }

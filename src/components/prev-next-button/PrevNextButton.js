@@ -41,7 +41,9 @@ const PrevNextButton = (props:Props): null | React$Element<"div"> => {
 
     default:
       chapter = chapter === null ? 0 : chapter; // because Flow is not picking up case(0) above
-      const { title, slug } = chapters[chapter]
+      let { title, slug } = chapters[chapter];
+
+      title = window.innerWidth < 768 && title.length > 13 ? `${title.substr(0, 13)}…` : title;
       return (
         <Link to={`/chapters/${language}/${slug}`} className={`PrevNextButton ${prev ? 'prev' : 'next'}`}>
           { prev ? <FontAwesomeIcon icon="chevron-left" /> : null }

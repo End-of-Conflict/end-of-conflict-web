@@ -3,6 +3,7 @@
  * @flow
  */
 import React, { useState } from 'react';
+import Header from '../header/Header';
 import Home from '../home/Home';
 import Chapter from '../chapter/Chapter';
 import PrevNext from '../prev-next/PrevNext';
@@ -33,14 +34,13 @@ const Main = (props: Props): React$Element<"div"> => {
   }
 
   return (
-    <div className="Main">
-      <Router>
-        <Home {...data} language={language} />
-        <Chapter {...data} language={language} />
-        <PrevNext {...data} language={language} />
-        <Footer />
-      </Router>
-    </div>
+    <Router>
+      <Header {...data} language={language} />
+      <Home {...data} language={language} />
+      <Chapter {...data} language={language} />
+      <PrevNext {...data} language={language} />
+      <Footer />
+    </Router>
   );
 }
 

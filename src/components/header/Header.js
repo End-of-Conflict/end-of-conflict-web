@@ -12,10 +12,6 @@ type Props = {
 };
 
 const Header = (props: Props): React$Element<"div"> => {
-  const { title } = props;
-  const match = useRouteMatch("/chapters/en/:chapter");
-  document.title = match && match.params ? `End of Conflict | Chapter ${match.params.chapter}: ${title}` : title;
-
   return (
     <div className="header">
       <header>
